@@ -71,7 +71,7 @@ def greet(name=None):
 
 @app.route('/lists/')
 def listt():
-    name = ['mango' , 'watermelon']
-    return render_template('greet.html', name = name) 
+    fruits = ['mango' , 'watermelon']
+    return render_template('list.html', fruits = fruits) 
 
 
