@@ -47,7 +47,7 @@ def method():
 @app.route("/methods/getting/" , methods = ['POST','GET','PUT', 'OPTIONS','PATCH', 'HEAD','DELETE'])
 def meth():
     if request.method == 'DELETE':
-        return "<p> hello post method </p>"
+        return "<p> hello post method </p>"re
     else:
         return "<p> hello get method </p>"
 
