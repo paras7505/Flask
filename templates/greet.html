@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>greet</title>
+</head>
+<body>
+    <h1>welcome to our website</h1>
+    {% if name %}
+        <h3> hello! {{name}}</h3>
+    {% else %}
+        <h3> hello! world</h3>
+    {% endif %}
+    <!-- jinja is used here to write the code -->
+    <h1> hello {{name}}</h1>
+</body>
+</html>
