@@ -62,7 +62,7 @@ def products():
     return render_template('products.html')
 
 
-@app.route('/hello/', methods = ['GET', 'POST'])
+@app.route('/hello/')
 @app.route('/hello/<name>/')
 def greet(name=None):
     return render_template('greet.html' , name = name)
@@ -75,11 +75,53 @@ def listt():
     return render_template('list.html', fruits = fruits) 
 
 
-
-@app.route("/form/")
+#  for get method 
+@app.get("/form/")
 def form():
     FirstName = request.args.get('fname')
     LastName = request.args.get('lname', default="")
     print(request.args)
     return f"<h1> user details {FirstName} {LastName} </h1>"
+
+
+#  for post method
+@app.post('/form/')
+def form_details():
+    firstName = request.form['fname']
+    lastName = request.form['lname']
+    print(request.form)    
+    return f"<h1> user details in post method {firstName} {lastName} </h1>"
+             
+#  using if else 
+
+
+@app.route('/ifelse/', methods=['POST', 'GET'])
+def forms():
+    if request.method == 'POST':       
+        firstName = request.form.get('fname')
+        lastName = request.form.get('lname')
+        print(request.form)
+    else:
+        firstName = request.args.get('fname')
+        lastName = request.args.get('lname')
+        print(request.form)
+    
+    return f"First name {firstName} {lastName}"
+
+
+
+# chatgpt code 
+
+@app.route('/ifelsee/', methods=['POST', 'GET'])
+def formss():
+    if request.method == 'POST':    
+        firstName = request.form.get('fname', '')
+        lastName = request.form.get('lname', '')
+        print("POST data:", request.form)
+    else:
+        firstName = request.args.get('fname', '')
+        lastName = request.args.get('lname', '')
+        print("GET data:", request.args)
+    
+    return f"First Name: {firstName}, Last Name: {lastName}"
 
