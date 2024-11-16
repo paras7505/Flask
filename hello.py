@@ -62,7 +62,7 @@ def products():
     return render_template('products.html')
 
 
-@app.route('/hello/')
+@app.route('/hello/', methods = ['GET', 'POST'])
 @app.route('/hello/<name>/')
 def greet(name=None):
     return render_template('greet.html' , name = name)
@@ -74,4 +74,12 @@ def listt():
     fruits = ['mango' , 'watermelon']
     return render_template('list.html', fruits = fruits) 
 
+
+
+@app.route("/form/")
+def form():
+    FirstName = request.args.get('fname')
+    LastName = request.args.get('lname', default="")
+    print(request.args)
+    return f"<h1> user details {FirstName} {LastName} </h1>"
 
